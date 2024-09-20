@@ -1,7 +1,7 @@
 function calculateTemp() {
-    const tempInput = parseFloat(document.getElementById('tempInput').value);
-    const unitFrom = document.getElementById('unitFrom').value;
-    const unitTo = document.getElementById('unitTo').value;
+    const tempInput = parseFloat(document.getElementById('inputTemp').value);
+    const unitFrom = document.getElementById('fromUnit').value;
+    const unitTo = document.getElementById('toUnit').value;
 
     let convertedResult = 0;
 
@@ -31,5 +31,5 @@ function calculateTemp() {
         }
     }
 
-    document.getElementById('convertedResult').innerText = convertedResult.toFixed(2);
+    document.getElementById('resultTemp').innerText = convertedResult.toFixed(2);
 }
