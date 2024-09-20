@@ -1,28 +1,35 @@
-function convertTemp() {
-    const inputTemp = parseFloat(document.getElementById('inputTemp').value);
-    const fromUnit = document.getElementById('fromUnit').value;
-    const toUnit = document.getElementById('toUnit').value;
+function calculateTemp() {
+    const tempInput = parseFloat(document.getElementById('tempInput').value);
+    const unitFrom = document.getElementById('unitFrom').value;
+    const unitTo = document.getElementById('unitTo').value;
 
-    let resultTemp = 0;
+    let convertedResult = 0;
 
-    if (fromUnit === 'celsius') {
-        if (toUnit === 'fahrenheit') {
-            resultTemp = (inputTemp * 9/5) + 32;
-        } else if (toUnit === 'kelvin') {
-            resultTemp = inputTemp + 273.15;
+    if (unitFrom === 'celsius') {
+        if (unitTo === 'fahrenheit') {
+            convertedResult = (tempInput * 9 / 5) + 32;
+        } else if (unitTo === 'kelvin') {
+            convertedResult = tempInput + 273.15;
         } else {
-            resultTemp = inputTemp; // Celsius to Celsius
+            convertedResult = tempInput; // Celsius to Celsius
         }
-    } else if (fromUnit === 'fahrenheit') {
-        if (toUnit === 'celsius') {
-            resultTemp = (inputTemp - 32) * 5/9;
-        } else if (toUnit === 'kelvin') {
-            resultTemp = ((inputTemp - 32) * 5/9) + 273.15;
+    } else if (unitFrom === 'fahrenheit') {
+        if (unitTo === 'celsius') {
+            convertedResult = (tempInput - 32) * 5 / 9;
+        } else if (unitTo === 'kelvin') {
+            convertedResult = ((tempInput - 32) * 5 / 9) + 273.15;
         } else {
-            resultTemp = inputTemp; // Fahrenheit to Fahrenheit
+            convertedResult = tempInput; // Fahrenheit to Fahrenheit
         }
-    } else if (fromUnit === 'kelvin') {
-        if (toUnit === 'celsius') {
-            resultTemp = inputTemp - 273.15;
-        } else if (toUnit === 'fahrenheit') {
-            resultTemp = ((inputTemp - 273.15) * 9/5) +
+    } else if (unitFrom === 'kelvin') {
+        if (unitTo === 'celsius') {
+            convertedResult = tempInput - 273.15;
+        } else if (unitTo === 'fahrenheit') {
+            convertedResult = ((tempInput - 273.15) * 9 / 5) + 32;
+        } else {
+            convertedResult = tempInput; // Kelvin to Kelvin
+        }
+    }
+
+    document.getElementById('convertedResult').innerText = convertedResult.toFixed(2);
+}
